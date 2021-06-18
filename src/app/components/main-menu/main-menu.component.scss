@@ -1,0 +1,82 @@
+.menu-container {
+    display: flex;
+}
+
+.add-button {
+    margin: 10px;
+
+    .add-icon {
+        font-size: 24px;
+    }
+}
+
+.canvas-container {
+    position: relative;
+}
+
+.vanishing-points-canvas {
+    background-color: white;
+}
+
+.overlay-containers {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0; right: 0;
+
+    .overlays-container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        top: 0; right: 0;
+        
+        input {
+            margin-bottom: 10px;
+            width: 75px;
+        }
+        select {
+            margin-bottom: 10px;
+            width: 85px;
+        }
+        .flip {
+            margin-bottom: 10px;
+            width: 75px;
+        }
+
+        .axis-input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: 10px;
+
+            display: flex;
+            flex-direction: column;
+
+        }
+    
+        .scale-input {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 10px;
+        }
+    
+        .download-container {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            margin: 10px;
+        }
+
+        .flipper-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            margin: 10px;
+
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+}

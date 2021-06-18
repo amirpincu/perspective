@@ -1,0 +1,87 @@
+<div class="menu-container">
+
+    <!-- <div class="vanishing-points-controll">
+
+        <div class="menu-section">
+            <div class="type-container">
+                <div>
+                    <input type="number" min="1" max="3" [(ngModel)]="pointsType">
+                </div>
+                <div>
+                    <input type="number" min="1" step="0.05" [(ngModel)]="scale" (input)="refresh()">
+                </div>
+            </div>
+
+            <div class="inputs-container">
+                <div class="input-container" *ngIf="pointsType > 0">
+                    <input type="number" min="1" max="89" step="0.25" (input)="changeZAngle()" [(ngModel)]="zAngle">
+                    <button (click)="flipZAngle()">Flip</button>
+                </div>
+
+                <div class="input-container" *ngIf="pointsType > 1">
+                    <input type="number" min="1" max="89" step="0.25" (input)="changeYAngle()" [(ngModel)]="yAngle">
+                    <mat-checkbox [(ngModel)]="isTopPoint" (input)="changeZAngle()">
+                        Top Point?
+                    </mat-checkbox>
+                </div>
+
+                <div class="input-container" *ngIf="pointsType > 2">
+                    <input type="number" min="0" max="359" (input)="changeXAngle()" [(ngModel)]="xAngle">
+                </div>
+            </div>
+        </div>
+
+        <div class="sets-section">
+            <mat-accordion>
+                <mat-expansion-panel class="set-panel" *ngFor="let item of VanishingSets; index as i">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Vanishing Point Set
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            {{item.xAngle}}°, {{item.yAngle}}°, {{item.zAngle}}°
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+
+    </div> -->
+
+    <div class="canvas-container">
+        <canvas class="vanishing-points-canvas" id="stage">
+        </canvas>
+        <div class="overlay-containers">
+            <div class="overlays-container">
+                <div class="axis-input">
+                    <!-- <select [(ngModel)]="pointsType" (change)="refresh()">
+                        <option *ngFor="let item of types" [value]="item.value">{{item.name}}</option>
+                    </select> -->
+                    <input type="number" [(ngModel)]="pointsType" min="1" max="3" (input)="refresh()">
+                    <input *ngIf="pointsType > 0" type="number" [(ngModel)]="zAngle" min="0" max="89.99" step="0.25" (input)="changeZAngle()">
+                    <input *ngIf="pointsType > 1" type="number" [(ngModel)]="yAngle" min="0" max="90" step="0.25" (input)="changeYAngle()">
+                    <input *ngIf="pointsType > 2" type="number" [(ngModel)]="xAngle" (input)="changeXAngle()">
+                </div>
+                <div class="scale-input">
+                    <input type="number" min="0" step="0.25" [(ngModel)]="scale" (input)="refresh()">
+                </div>
+                <div class="download-container">
+                    <button class="add-button" mat-icon-button (click)="download()">
+                        <span class="add-icon">☟</span>
+                    </button>
+                    <button class="add-button" mat-icon-button (click)="open()">
+                        <span class="add-icon">O</span>
+                    </button>
+                </div>
+                <div class="flipper-container">
+                    <button class="flip" (click)="flipZAngle()" *ngIf="pointsType > 0">
+                        Flip Z Rotation
+                    </button>
+                    <button class="flip" (click)="flipYAngle()" *ngIf="pointsType > 1">
+                        Flip Height Top/Bottom
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
